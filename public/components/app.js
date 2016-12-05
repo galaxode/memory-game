@@ -4,7 +4,9 @@ class App extends React.Component {
 
     this.state = {
       shuffledCardNames: [],
-      cardChoices: []
+      cardChoices: [],
+      matched: false,
+      choiceCount: 0
 
     };
   }
@@ -15,18 +17,46 @@ class App extends React.Component {
     this.setState({shuffledCardNames: _.shuffle(this.props.gitnames.concat(this.props.gitnames))});
   }
 
+  registerChoice(choice) {
+    if (this.state.cardChoices.length < 2) {
+      this.setState({cardChoices: this.state.cardChoices.concat([choice]),
+                      choiceCount: this.state.choiceCount++}, function() {
+        console.log(this.state.cardChoices);
+
+
+        if (this.state.cardChoices.length === 2) {
+          var cardChoice1 = this.state.cardChoices[0];
+          var cardChoice2 = this.state.cardChoices[1];
+          if (cardChoice1 === cardChoice2) {
+            this.setState({matched: true});
+          }
+        }
+      });
+    }
+  }
+
 
   render() {
     return (
-      <div className='row'>
-        <div className='col-sm-3'>
-          {
-            this.state.shuffledCardNames.map(function(cardname) {
-              console.log(cardname)
-              return <MemoryCard cardname={cardname} />
-            })
-          }
+      <div>
+
+        <div className='row'>
+          <div className='col-sm-3 col-md-3'>
+            {
+              this.state.shuffledCardNames.map((cardname, cardindex) => {
+                return <MemoryCard
+                  cardname={cardname}
+                  key={cardindex}
+                  registerChoice={this.registerChoice.bind(this)}
+                  matched = {this.state.matched}
+                  choiceCount={this.state.choiceCount}/>
+              })
+            }
+          </div>
         </div>
+
+        <MessageView />
+
       </div>
     )
   }
