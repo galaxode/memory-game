@@ -4,7 +4,7 @@ class MemoryCard extends React.Component {
 
     this.state = {
       // GitHub api
-      api: 'https://api.github.com/users/',
+      apiPath: 'https://api.github.com/users/',
 
       // To be filled in with response from GET request to GitHub api
       cardData: {},
@@ -20,16 +20,16 @@ class MemoryCard extends React.Component {
 
   componentDidMount() {
     var component = this;
-      $.get(this.state.api + this.props.cardname, function(data) {
-        component.setState({cardData: data});
+      $.get(this.state.apiPath + this.props.cardname, function(data) {
+        component.setState(data);
     });
   }
 
   render() {
     return (
-      <span onClick={() => {this.setState({clicked: !this.state.clicked}); console.log(this.state.clicked);}}>
+      <span onClick={() => {this.setState({clicked: !this.state.clicked}); }}>
         {this.state.clicked ?
-          <img className={this.state.login} src={this.state.cardData.avatar_url} width='80' />
+          <img className={this.state.login} src={this.state.avatar_url} width='80' />
           : <img className={this.state.login} src={this.state.cardBack} width='80' />}
       </span>
     )

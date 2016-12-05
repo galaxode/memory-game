@@ -1,7 +1,7 @@
 {
-  "name": "practice-app",
+  "name": "memory-game",
   "version": "1.0.0",
-  "description": "Practice making a react app",
+  "description": "MVP Project for Hack Reactor",
   "author": "Andrew Cookro",
   "license": "UNLICENSED",
   "scripts": {

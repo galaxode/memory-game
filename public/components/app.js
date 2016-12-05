@@ -17,15 +17,19 @@ class App extends React.Component {
 
 
   render() {
-    <div className='row'>
-      <div className='col-sm-3'>
-        {
-          this.state.shuffledCardNames.map(function(cardname) {
-            return <MemoryCard cardname={cardname} />
-          })
-        }
+    return (
+      <div className='row'>
+        <div className='col-sm-3'>
+          {
+            this.state.shuffledCardNames.map(function(cardname) {
+              console.log(cardname)
+              return <MemoryCard cardname={cardname} />
+            })
+          }
+        </div>
       </div>
-    </div>
+    )
   }
+}
 
 window.App = App;
