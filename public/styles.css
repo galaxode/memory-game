@@ -3,3 +3,6 @@
 body {
   background: #f1f1f1;
 }
+.card img {
+  border-color: black;
+}

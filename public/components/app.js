@@ -5,8 +5,10 @@ class App extends React.Component {
     this.state = {
       shuffledCardNames: [],
       cardChoices: [],
-      matched: false,
-      choiceCount: 0
+      matched: null,
+      choiceCount: 0,
+      matchCount: 0,
+      tryAgain: false
 
     };
   }
@@ -15,6 +17,19 @@ class App extends React.Component {
     // Use the data (github username array prop) to create a shuffled card spread
     // with two of each name to be matched
     this.setState({shuffledCardNames: _.shuffle(this.props.gitnames.concat(this.props.gitnames))});
+  }
+
+  resetUnmatched() {
+    this.setState({
+      cardChoices: [],
+      matched: null,
+      choiceCount: 0,
+      tryAgain: true
+    })
+  }
+
+  toggleTryAgain() {
+    this.setState({tryAgain: false});
   }
 
   registerChoice(choice) {
@@ -28,7 +43,11 @@ class App extends React.Component {
           var cardChoice1 = this.state.cardChoices[0];
           var cardChoice2 = this.state.cardChoices[1];
           if (cardChoice1 === cardChoice2) {
-            this.setState({matched: true});
+            this.setState({matched: true}, function() {
+              console.log('Found a match!');
+            });
+          } else {
+            this.setState({matched: false});
           }
         }
       });
@@ -41,7 +60,7 @@ class App extends React.Component {
       <div>
 
         <div className='row'>
-          <div className='col-sm-3 col-md-3'>
+          <div className='col-sm-3 col-md-6'>
             {
               this.state.shuffledCardNames.map((cardname, cardindex) => {
                 return <MemoryCard
@@ -49,13 +68,15 @@ class App extends React.Component {
                   key={cardindex}
                   registerChoice={this.registerChoice.bind(this)}
                   matched = {this.state.matched}
-                  choiceCount={this.state.choiceCount}/>
+                  tryAgain = {this.state.tryAgain}
+                  choiceCount={this.state.choiceCount}
+                  toggleTryAgain={this.toggleTryAgain.bind(this)}/>
               })
             }
           </div>
         </div>
 
-        <MessageView />
+        <MessageView matched={this.state.matched} resetUnmatched={this.resetUnmatched.bind(this)}/>
 
       </div>
     )

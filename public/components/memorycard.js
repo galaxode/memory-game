@@ -29,6 +29,7 @@ class MemoryCard extends React.Component {
   handleClick() {
     if (!this.state.clicked) {
       this.setState({clicked: !this.state.clicked});
+      //if (this.props.tryAgain)
       this.props.registerChoice(this.props.cardname);
       console.log(this.state.cardData);
     } else {
@@ -36,12 +37,25 @@ class MemoryCard extends React.Component {
     }
   }
 
+  flip() {
+    if (this.state.clicked === true && !this.props.tryAgain) {
+      return <img className={this.props.cardname + ' card'} src={this.state.cardData.avatar_url} width='120' />
+    } else {
+      return <img className={this.props.cardname + ' card'} src={this.state.cardBack} width='120' />
+    }
+  }
+
   render() {
+
+    // if (this.props.tryAgain === true) {
+    //   this.setState({clicked: false}, function() {
+    //     this.toggleTryAgain();
+    //   });
+    // }
+
     return (
       <span onClick={() => {this.handleClick()}}>
-        {this.state.clicked ?
-          <img className={this.props.cardname} src={this.state.cardData.avatar_url} width='80' />
-          : <img className={this.props.cardname} src={this.state.cardBack} width='80' />}
+        {this.flip()}
       </span>
     )
   }
