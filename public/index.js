@@ -1,10 +1,10 @@
 
 var gitnames = [
-  'galaxode',
+  'tretuna',
   'codydaig',
   'therobinkim',
-  'stefanruijsenaars',
-  'TreTuna',
+  'ivtpz',
+  'sourjam',
   'JotheElephant',
   'wyattlindsey',
   'busbyactual'
