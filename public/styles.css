@@ -34,3 +34,12 @@ input[type='text'] {
 /*input[type='submit']{
   width: 20%;
 }*/
+.btn-xlarge {
+    padding: 18px 28px;
+    background-color: #3498DB;
+    font-size: 22px; //change this to your desired size
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}

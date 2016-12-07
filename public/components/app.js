@@ -9,8 +9,11 @@ class App extends React.Component {
       matched: null,
       choiceCount: 0,
       matchCount: 0,
+      matchArray: [],
       matchesNeeded: this.props.gitnames.length,
       tryAgain: false,
+      wonGame: false
+
 
     };
   }
@@ -18,6 +21,10 @@ class App extends React.Component {
   componentDidMount() {
     // Use the data (github username array prop) to create a shuffled card spread
     // with two of each name to be matched
+    this.shuffleCards();
+  }
+
+  shuffleCards() {
     this.setState({shuffledCardNames: _.shuffle(this.props.gitnames.concat(this.props.gitnames))});
   }
 
@@ -25,14 +32,17 @@ class App extends React.Component {
     this.setState({identiconName: username + '.png'});
   }
 
-  checkGameStatus() {
-    if (matchCount) {
-
+  checkMatch(cardname, callback) {
+    if (this.state.matchArray.indexOf(cardname) >= 0) {
+      callback(true);
+    } else {
+      callback(false);
     }
   }
 
   resetUnmatched() {
-    if (!this.state.matched) {
+    //if (!this.state.matched) {
+
       this.setState({tryAgain: true}, () => {
         this.setState({
           cardChoices: [],
@@ -40,7 +50,7 @@ class App extends React.Component {
           choiceCount: 0
         });
       });
-    }
+    //}
   }
 
   continueAfterMatch() {
@@ -49,6 +59,22 @@ class App extends React.Component {
         cardChoices: [],
         choiceCount: 0
       });
+    });
+  }
+
+  startNewGame() {
+    this.setState({
+      shuffledCardNames: [],
+      cardChoices: [],
+      matched: null,
+      choiceCount: 0,
+      matchCount: 0,
+      matchArray: [],
+      tryAgain: false,
+      wonGame: false
+    }, () => {
+      this.shuffleCards();
+      console.log(this.state.matchCount);
     });
   }
 
@@ -72,12 +98,22 @@ class App extends React.Component {
           var cardChoice2 = this.state.cardChoices[1];
 
           if (cardChoice1 === cardChoice2) {
-            this.setState({matched: true, matchCount: this.state.MatchCount + 1}, () => {
-              if (this.state.matchesNeeded === this.state.matchCount) {
-                this.setState({wonGame: true});
-              } else {
-                // enable continued play
+
+              if (this.state.matchesNeeded === this.state.matchCount + 1) {
+
+                this.setState({wonGame: true}, () => {
+                  return;
+                });
               }
+
+            this.setState({matched: true, matchCount: this.state.matchCount + 1,
+              matchArray: this.state.matchArray.concat([cardChoice1])}, () => {
+              // Send true to memory card tell it that it's a match
+              console.log('Match Array: ', this.state.matchArray);
+              console.log('Match Count: ', this.state.matchCount);
+              callback(true);
+
+
             });
           } else {
             this.setState({matched: false}, () => {
@@ -103,15 +139,22 @@ class App extends React.Component {
           <div className='col-sm-9 col-md-6 col-lg-6'>
             {
               this.state.shuffledCardNames.map((cardname, cardindex) => {
+                var foundMatch = false;
+                if (this.state.matchArray.indexOf(cardname) >= 0) {
+                  foundMatch = true;
+                }
                 return <MemoryCard
                   cardname={cardname}
                   key={cardindex}
                   identiconName={this.state.identiconName}
                   registerChoice={this.registerChoice.bind(this)}
                   matched = {this.state.matched}
+                  matchArray={this.state.matchArray}
                   tryAgain = {this.state.tryAgain}
                   choiceCount={this.state.choiceCount}
-                  toggleTryAgain={this.toggleTryAgain.bind(this)}/>
+                  toggleTryAgain={this.toggleTryAgain.bind(this)}
+                  checkMatch={this.checkMatch.bind(this)}
+                  foundMatch={foundMatch}/>
               })
             }
           </div>
@@ -121,7 +164,8 @@ class App extends React.Component {
           matched={this.state.matched}
           resetUnmatched={this.resetUnmatched.bind(this)}
           continueAfterMatch={this.continueAfterMatch.bind(this)}
-          wonGame={this.wonGame}/>
+          wonGame={this.state.wonGame}
+          startNewGame={this.startNewGame.bind(this)}/>
 
       </div>
     )

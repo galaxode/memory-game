@@ -45,7 +45,7 @@ class MemoryCard extends React.Component {
     }
   }
 
-  triggerClick() {
+  triggerUnflip() {
     this.props.toggleTryAgain((done) => {
       if (done) {
         this.setState({flipped: false}, function() {
@@ -55,31 +55,30 @@ class MemoryCard extends React.Component {
     })
   }
 
+
   flip() {
+
+
     if (this.props.tryAgain) {
-      this.triggerClick();
+      this.triggerUnflip();
     }
 
-    if (this.props.match) {
-      this.setState({foundMatch: true});
-    }
 
-    if (this.state.foundMatch || (this.state.flipped === true && !this.props.tryAgain) ) {
-      console.log('inside flipped state: ', this.state.foundMatch)
+
+
+    if (this.props.foundMatch || this.state.foundMatch || (this.state.flipped === true && !this.props.tryAgain) ) {
+
       return <img className={this.props.cardname + ' card'} src={this.state.cardData.avatar_url} width='120' />
-    } else {
-      console.log(this.state.foundMatch)
+    } else if (this.state.flipeed === false || this.props.tryAgain === false) {
+
       return <img className={this.props.cardname + ' card'} src={this.state.cardBack + this.props.identiconName} width='120' />
     }
   }
 
   render() {
 
-    // if (this.props.tryAgain === true) {
-    //   this.setState({clicked: false}, function() {
-    //     this.toggleTryAgain();
-    //   });
-    // }
+
+
 
     return (
       <span onClick={() => {this.handleClick()}}>

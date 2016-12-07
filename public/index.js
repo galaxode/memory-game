@@ -3,7 +3,7 @@ var gitnames = [
   'tretuna',
   'codydaig',
   'therobinkim',
-  'ivtpz',
+  'dhammaluke',
   'sourjam',
   'JotheElephant',
   'wyattlindsey',
