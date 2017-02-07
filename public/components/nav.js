@@ -33,9 +33,9 @@ class Nav extends React.Component {
         </div>
           <form onSubmit={this.handleSubmit.bind(this)} autocomplete='nope'>
             <input className='githubUsernameField' name='githubUsername' type='text' value={this.state.value} onChange={this.handleChange.bind(this)} placeholder='Input your github username here' autocomplete='nope'/>
-            <input className='githubUsernameButton' type='submit' value='Submit' />
+            <input className='githubUsernameButton btn btn-sm' type='submit' value='Submit' />
           </form>
-          <span className='theme'>THEME: {this.state.currentTheme} identicon</span>
+          <span className='theme'>identicon theme: {this.state.currentTheme}</span>
     </div>
     )
   }
