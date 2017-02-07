@@ -3,7 +3,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      identiconName: 'hughes89.png',
+      identiconName: 'galaxode.png',
       shuffledCardNames: [],
       cardChoices: [],
       matched: null,
@@ -136,7 +136,7 @@ class App extends React.Component {
       </div>
 
         <div className='row'>
-          <div className='col-sm-9 col-md-6 col-lg-6'>
+          <div className='col-xs-9 col-sm-9 col-md-7 col-lg-6'>
             {
               this.state.shuffledCardNames.map((cardname, cardindex) => {
                 var foundMatch = false;
