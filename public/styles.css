@@ -2,6 +2,7 @@
 
 body {
   background: #f1f1f1;
+  min-width: 615px;
 }
 img {
 /*   padding:1px;
@@ -17,6 +18,31 @@ img {
 
 }
 
+.navbar {
+  width: 510px;
+}
+.card {
+  width: 120px;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    width: 420px;
+  }
+  .card {
+    width: 100px;
+  }
+}
+
+@media (max-width: 415px) {
+  .navbar {
+    width: 340px;
+  }
+  .card {
+    width: 90px;
+  }
+}
+
 input[type='text'] {
   margin-left: 10px;
   width: 250px;
@@ -25,8 +51,8 @@ input[type='text'] {
 .theme {
   margin-left: 10px;
   /*font-weight: lighter;*/
+  font-size: 16px;
 }
-
 
 .message {
   margin-top: 10px;
@@ -42,4 +68,7 @@ input[type='text'] {
     -webkit-border-radius: 8px;
        -moz-border-radius: 8px;
             border-radius: 8px;
+}
+.btn {
+  margin: 5px;
 }
