@@ -90,7 +90,7 @@ class App extends React.Component {
       this.setState({
         cardChoices: this.state.cardChoices.concat([choice]),
         choiceCount: this.state.choiceCount++}, function() {
-        console.log(this.state.cardChoices);
+        console.log('cardChoices: ', this.state.cardChoices, 'choiceCount: ', this.state.choiceCount);
 
 
         if (this.state.cardChoices.length === 2) {
