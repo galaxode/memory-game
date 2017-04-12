@@ -29,9 +29,8 @@ class MemoryCard extends React.Component {
   }
 
   handleClick() {
-
-
-    if (!this.state.flipped) {
+    console.log(this.props.choiceCount);
+    if (!this.state.flipped && this.props.choiceCount < 2) {
       this.setState({flipped: true});
 
       this.props.registerChoice(this.props.cardname, (isMatch) => {
@@ -41,7 +40,7 @@ class MemoryCard extends React.Component {
       });
       console.log(this.state.cardData);
     } else {
-      console.log('Already flipped!');
+      console.log('You may not flip this card now.');
     }
   }
 
@@ -56,7 +55,7 @@ class MemoryCard extends React.Component {
   }
 
 
-  flip() {
+  displayCard() {
 
 
     if (this.props.tryAgain) {
@@ -66,10 +65,10 @@ class MemoryCard extends React.Component {
 
 
 
-    if (this.props.foundMatch || this.state.foundMatch || (this.state.flipped === true && !this.props.tryAgain) ) {
+    if (this.props.foundMatch || this.state.foundMatch || (this.state.flipped && !this.props.tryAgain && (this.props.choiceCount < 2)) ) {
 
       return <img className={this.props.cardname + ' card'} src={this.state.cardData.avatar_url} width='120' />
-    } else if (this.state.flipeed === false || this.props.tryAgain === false) {
+    } else if (this.state.flipped === false || this.props.tryAgain === false) {
 
       return <img className={this.props.cardname + ' card'} src={this.state.cardBack + this.props.identiconName} width='120' />
     }
@@ -82,7 +81,7 @@ class MemoryCard extends React.Component {
 
     return (
       <span onClick={() => {this.handleClick()}}>
-        {this.flip()}
+        {this.displayCard()}
       </span>
     )
   }
