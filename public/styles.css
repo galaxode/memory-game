@@ -5,22 +5,36 @@ body {
   min-width: 615px;
 }
 img {
-/*   padding:1px;
-   border:1px solid #021a40;
-   background-color: #FFFFFF;*/
-   box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
-  /* box-shadow: -4px -4px 2px -2px rgba(0,0,0,0.4);*/
- /*   border: 1px solid rgba(0,0,0,0.1);
-  box-shadow:
-    inset 0 2px 3px rgba(255,255,255,0.3),
-    inset 0 -2px 3px rgba(0,0,0,0.3),
-    0 1px 1px rgba(255,255,255,0.9);*/
-
+  box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
 }
 
 .navbar {
   width: 510px;
+  margin-top: 10px;
 }
+
+.navbar-header {
+  margin-top: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+.navbar-brand {
+  float: none;
+}
+
+.input-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.input-bar {
+  /* nothing in here at the moment */
+}
+
 .card {
   width: 120px;
 }
@@ -44,22 +58,19 @@ img {
 }
 
 input[type='text'] {
-  margin-left: 10px;
   width: 250px;
 }
 
 .theme {
-  margin-left: 10px;
-  /*font-weight: lighter;*/
-  font-size: 16px;
+  font-size: 14px;
+  font-style: italic;
+
 }
 
 .message {
   margin-top: 10px;
 }
-/*input[type='submit']{
-  width: 20%;
-}*/
+
 .btn-xlarge {
     padding: 18px 28px;
     background-color: #3498DB;
@@ -69,6 +80,7 @@ input[type='text'] {
        -moz-border-radius: 8px;
             border-radius: 8px;
 }
+
 .btn {
   margin: 5px;
 }
