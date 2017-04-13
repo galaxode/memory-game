@@ -1,12 +1,15 @@
 # GitHub Memory Match
 
-> A memory card matching game using GitHub API for card themes and content.
+> A memory card matching game using GitHub API for card themes and content. Change the game board theme by inputing a new GitHub username.
 
-![Starting Game Board Screenshot](http://res.cloudinary.com/glitchblips/image/upload/c_scale,h_763/v1492101973/game-board_copy_d3wglv.png "Starting Game Board")
+| | |
+| ------------ | ------------ |
+| ![Match Found Screenshot](/screenshots/found-match.png?raw=true "Match Found") |
+![Mismatch Screenshot](/screenshots/mismatch.png?raw=true "Mismatch") |
 
-| | | |
-| ------------ | ------------ | ------------ |
-| ![Match Found Screenshot](/screenshots/found-match.png?raw=true "Match Found") | ![Mismatch Screenshot](/screenshots/mistmatch.png?raw=true "Mismatch") | ![Theme Change Screenshot1](/screenshots/nrr20-nebula.png?raw=true "Identicon Theme Change") | ![Theme Change Screenshot2](/screenshots/nrr20-nebula.png?raw=true "Identicon Theme Change") |
+| | |
+| ------------ | ------------ |
+| ![Theme Change Screenshot1](/screenshots/nrr20-nebula-identicon.png?raw=true "Identicon Theme Change") | ![Theme Change Screenshot2](/screenshots/GraceHopper-identicon.png?raw=true "Identicon Theme Change") |
 
 ## Table of Contents
 
