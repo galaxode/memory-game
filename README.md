@@ -2,7 +2,7 @@
 
 > A memory card matching game using GitHub API for card themes and content.
 
-![Starting Game Board Screenshot](/screenshots/game-board.png?raw=true "Starting Game Board")
+![Starting Game Board Screenshot](http://res.cloudinary.com/glitchblips/image/upload/c_scale,h_763/v1492101973/game-board_copy_d3wglv.png "Starting Game Board")
 
 | | | |
 | ------------ | ------------ | ------------ |
