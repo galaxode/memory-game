@@ -6,7 +6,7 @@
 
 | | | |
 | ------------ | ------------ | ------------ |
-| ![Found Match Screenshot](/screenshots/found-match.png?raw=true "Match Found") | ![Mismatch Screenshot](/screenshots/mistmatch.png?raw=true "Mismatch") | ![Theme Change Screenshot1](/screenshots/nrr20-nebula.png?raw=true "Change identicon theme to GitHub username hrr20-nebula") | ![Theme Change Screenshot2](/screenshots/nrr20-nebula.png?raw=true "Change identicon theme to GitHub username GraceHopper") |
+| ![Match Found Screenshot](/screenshots/found-match.png?raw=true "Match Found") | ![Mismatch Screenshot](/screenshots/mistmatch.png?raw=true "Mismatch") | ![Theme Change Screenshot1](/screenshots/nrr20-nebula.png?raw=true "Identicon Theme Change") | ![Theme Change Screenshot2](/screenshots/nrr20-nebula.png?raw=true "Identicon Theme Change") |
 
 ## Table of Contents
 
