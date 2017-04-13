@@ -2,11 +2,11 @@
 
 > A memory card matching game using GitHub API for card themes and content.
 
-![landscape_screenshot](https://res.cloudinary.com/dayskokep/image/upload/v1486753853/iphone6_spacegrey_landscape_eheprh.png)
+![Starting Game Board Screenshot](/screenshots/game-board.png?raw=true "Starting Game Board")
 
 | | | |
 | ------------ | ------------ | ------------ |
-| ![Starting Game Board Screenshot](/screenshots/game-board.png?raw=true "Starting Game Board") | ![Found Match Screenshot](/screenshots/found-match.png?raw=true "Match Found") | ![Mismatch Screenshot](/screenshots/mistmatch.png?raw=true "Mismatch") | ![Theme Change Screenshot](/screenshots/nrr20-nebula.png?raw=true "Change identicon theme to GitHub username hrr20-nebula") |
+| ![Found Match Screenshot](/screenshots/found-match.png?raw=true "Match Found") | ![Mismatch Screenshot](/screenshots/mistmatch.png?raw=true "Mismatch") | ![Theme Change Screenshot1](/screenshots/nrr20-nebula.png?raw=true "Change identicon theme to GitHub username hrr20-nebula") | ![Theme Change Screenshot2](/screenshots/nrr20-nebula.png?raw=true "Change identicon theme to GitHub username GraceHopper") |
 
 ## Table of Contents
 
