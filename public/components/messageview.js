@@ -36,8 +36,10 @@ class MessageView extends React.Component {
   render() {
     return (
       <div className='row'>
-        <div className='col-sm-12 col-md-12'>
+      <div className='message-container'>
+        <div className='notsure'>
           {this.messageChoice()}
+        </div>
         </div>
       </div>
     )
