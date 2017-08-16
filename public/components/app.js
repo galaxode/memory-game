@@ -89,8 +89,10 @@ class App extends React.Component {
     if (this.state.cardChoices.length < 2) {
       this.setState({
         cardChoices: this.state.cardChoices.concat([choice]),
-        choiceCount: this.state.choiceCount++}, function() {
-        console.log('cardChoices: ', this.state.cardChoices, 'choiceCount: ', this.state.choiceCount);
+        choiceCount: this.state.choiceCount + 1
+      }, function() {
+        var choiceCount = this.state.cardChoices.length;
+        console.log('cardChoices: ', this.state.cardChoices, 'choiceCount: ', choiceCount);
 
 
         if (this.state.cardChoices.length === 2) {
@@ -134,9 +136,8 @@ class App extends React.Component {
           <Nav updateIdenticon={this.updateIdenticon.bind(this)} />
 
       </div>
-
-        <div className='row'>
-          <div className='col-xs-9 col-sm-9 col-md-7 col-lg-6'>
+         <div className='row gameboard'>
+          <div className='col-xs-9 col-sm-9 col-md-7 col-lg-7 card-container'>
             {
               this.state.shuffledCardNames.map((cardname, cardindex) => {
                 var foundMatch = false;
@@ -147,11 +148,12 @@ class App extends React.Component {
                   cardname={cardname}
                   key={cardindex}
                   identiconName={this.state.identiconName}
+                  avatarURLs={this.props.avatarURLs}
                   registerChoice={this.registerChoice.bind(this)}
                   matched = {this.state.matched}
                   matchArray={this.state.matchArray}
                   tryAgain = {this.state.tryAgain}
-                  choiceCount={this.state.choiceCount}
+                  choiceCount={this.state.cardChoices.length}
                   toggleTryAgain={this.toggleTryAgain.bind(this)}
                   checkMatch={this.checkMatch.bind(this)}
                   foundMatch={foundMatch}/>
@@ -159,7 +161,6 @@ class App extends React.Component {
             }
           </div>
         </div>
-
         <MessageView
           matched={this.state.matched}
           resetUnmatched={this.resetUnmatched.bind(this)}

@@ -2,9 +2,10 @@ class MemoryCard extends React.Component {
   constructor(props) {
     super(props);
 
+
     this.state = {
       // GitHub api
-      apiPath: 'https://api.github.com/users/',
+      apiPath: 'https://galaxode:niccopants!99@api.github.com/users/',
 
       // To be filled in with response from GET request to GitHub api
       cardData: {},
@@ -22,10 +23,10 @@ class MemoryCard extends React.Component {
   }
 
   componentDidMount() {
-    var component = this;
-      $.get(this.state.apiPath + this.props.cardname, function(data) {
-        component.setState({cardData: data});
-    });
+    // var component = this;
+    //   $.get(this.state.apiPath + this.props.cardname, function(data) {
+    //     component.setState({cardData: data});
+    // });
   }
 
   handleClick() {
@@ -38,7 +39,6 @@ class MemoryCard extends React.Component {
           this.setState({foundMatch: true});
         }
       });
-      console.log(this.state.cardData);
     } else {
       console.log('You may not flip this card now.');
     }
@@ -62,15 +62,15 @@ class MemoryCard extends React.Component {
       this.triggerUnflip();
     }
 
+    const cardname = this.props.cardname;
+    const avatarURL = this.props.avatarURLs[cardname];
 
+    if (this.props.foundMatch || this.state.foundMatch || (this.state.flipped && !this.props.tryAgain && (this.props.choiceCount <= 2)) ) {
 
-
-    if (this.props.foundMatch || this.state.foundMatch || (this.state.flipped && !this.props.tryAgain && (this.props.choiceCount < 2)) ) {
-
-      return <img className={this.props.cardname + ' card'} src={this.state.cardData.avatar_url} width='120' />
+      return <img className={cardname + ' card'} src={avatarURL} width='120' />
     } else if (this.state.flipped === false || this.props.tryAgain === false) {
 
-      return <img className={this.props.cardname + ' card'} src={this.state.cardBack + this.props.identiconName} width='120' />
+      return <img className={cardname + ' card'} src={this.state.cardBack + this.props.identiconName} width='120' />
     }
   }
 

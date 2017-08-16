@@ -10,7 +10,7 @@ app.use(express.static('public'));
 app.use('/compiled', express.static('./compiled'));
 
 
-var port = 8000;
+var port = process.env.PORT || 8000;
 
 app.listen(port, function() {
   console.log('Listening on port ', port);
