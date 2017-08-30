@@ -1,7 +1,6 @@
-@import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
 
 * {
-  border: 0px solid black;
+  /*border: 0.5px solid black;*/
 }
 
 body {
@@ -26,7 +25,6 @@ img {
 
 .navbar {
   /*width: 510px;*/
-
   margin: 10px auto 10px auto;
 
 }
@@ -107,6 +105,7 @@ img {
 
 input[type='text'] {
   width: 250px;
+  margin-left: 5px;
 }
 
 .theme {
@@ -122,13 +121,9 @@ input[type='text'] {
 .btn-xlarge {
     padding: 18px 28px;
     background-color: #3498DB;
-    font-size: 22px; //change this to your desired size
+    font-size: 22px;
     line-height: normal;
     -webkit-border-radius: 8px;
        -moz-border-radius: 8px;
             border-radius: 8px;
 }
-
-/*.btn {
-  margin: 5px;
-}*/
