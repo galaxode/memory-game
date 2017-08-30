@@ -12,10 +12,13 @@ class Nav extends React.Component {
   handleSubmit() {
     console.log(event.target.name);
     event.preventDefault();
-    this.setState({currentTheme: this.state.value}, () => {
-      this.props.updateIdenticon(this.state.value);
-      this.setState({value: ''});
-    });
+    // Ensure an empty string cannot be submitted
+    if (this.state.value !== '') {
+      this.setState({currentTheme: this.state.value}, () => {
+        this.props.updateIdenticon(this.state.value);
+        this.setState({value: ''});
+      });
+    }
   }
 
   handleChange(event) {
